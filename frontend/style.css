@@ -1,0 +1,93 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6f8;
+  color: #222;
+}
+
+header {
+  background: #91A19C;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+header nav {
+  margin-top: 0.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #E3CF34;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.bienvenida {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.08);
+  text-align: center;
+}
+
+.bienvenida h2 {
+  margin-top: 0;
+}
+
+.bienvenida button {
+  background: #FC5C5C;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bienvenida button:hover {
+  background: #E3CF34;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.bienvenida input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: #f9f9f9;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(60,60,60,0.05);
+  transition: border 0.2s;
+}
+
+.bienvenida input[type="date"]:focus {
+  border: 1.5px solid #1a237e;
+  outline: none;
+}
