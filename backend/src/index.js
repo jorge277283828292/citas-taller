@@ -1,42 +1,37 @@
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
-const db = require('./config/db');
+const path = require('path');
 const citaRoutes = require('./routes/citaRoutes');
+const clienteRoutes = require('./routes/clienteRoutes');
+const vehiculoRoutes = require('./routes/vehiculoRoutes');
 
-// Configuración de variables de entorno
-dotenv.config();
-
-// Inicialización de Express
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rutas básicas
-app.get('/', (req, res) => {
-  res.json({ message: 'API de Sistema de Taller funcionando correctamente' });
+// Servir archivos estáticos desde el directorio frontend
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
+// Rutas de la API
+app.use('/api/citas', citaRoutes);
+app.use('/api/clientes', clienteRoutes);
+app.use('/api/vehiculos', vehiculoRoutes);
+
+// Ruta para el frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
-// Rutas de la API para citas
-app.use('/api/citas', citaRoutes);
+// Manejo de errores
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Error interno del servidor' });
+});
 
-// Puerto del servidor
-const PORT = process.env.PORT || 3000;
-
-// Probar conexión a la base de datos
-(async () => {
-  try {
-    await db.getConnection();
-    console.log('Conexión a MySQL exitosa');
-  } catch (error) {
-    console.error('Error al conectar a MySQL:', error.message);
-  }
-})();
-
-// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 }); 

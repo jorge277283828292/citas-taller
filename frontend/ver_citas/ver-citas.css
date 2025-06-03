@@ -1,0 +1,98 @@
+.citas-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabla-citas {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #1a237e;
+  color: white;
+  font-weight: 500;
+}
+
+tr:hover {
+  background: #f5f5f5;
+}
+
+.btn-editar, .btn-eliminar {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-editar {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-editar:hover {
+  background: #1976d2;
+}
+
+.btn-eliminar {
+  background: #f44336;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background: #d32f2f;
+}
+
+/* Estilos para los mensajes */
+.mensaje {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.mensaje-success {
+  background: #4caf50;
+}
+
+.mensaje-error {
+  background: #f44336;
+}
+
+.mensaje-info {
+  background: #2196f3;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
