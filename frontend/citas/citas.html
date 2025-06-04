@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrar Cita</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -17,10 +18,58 @@
   </header>
   <main>
     <section class="bienvenida">
-      <h2>Selecciona la fecha de tu cita</h2>
-      <input type="date" id="fecha-cita" name="fecha-cita">
-      <br><br>
-      <button id="registrar-btn">Registrar Cita</button>
+      <h2>Registra tu cita</h2>
+      <form id="cita-form">
+        <div class="form-group">
+          <label for="fecha-cita">Fecha de la cita:</label>
+          <input type="date" id="fecha-cita" name="fecha-cita" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo-cita">Tipo de servicio:</label>
+          <select id="tipo-cita" name="tipo-cita" required>
+            <option value="">Seleccione un servicio</option>
+            <option value="cambio_llantas">Cambio de llantas</option>
+            <option value="revision_profunda">Revisión profunda</option>
+            <option value="cambio_aceite">Cambio de aceite</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Vehículos:</label>
+          <div id="vehiculos-container">
+            <div class="vehiculo-item">
+              <input type="text" placeholder="Marca" class="marca" required>
+              <input type="text" placeholder="Modelo" class="modelo" required>
+              <input type="text" placeholder="Año" class="año" required>
+              <input type="text" placeholder="Placa" class="placa" required>
+            </div>
+          </div>
+          <button type="button" id="agregar-vehiculo" class="btn-secundario">
+            <i class="fas fa-plus"></i> Agregar otro vehículo
+          </button>
+        </div>
+
+        <div class="form-group">
+          <label>Calificación esperada:</label>
+          <div class="rating">
+            <i class="fas fa-star" data-rating="1"></i>
+            <i class="fas fa-star" data-rating="2"></i>
+            <i class="fas fa-star" data-rating="3"></i>
+            <i class="fas fa-star" data-rating="4"></i>
+            <i class="fas fa-star" data-rating="5"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Mecánico asignado:</label>
+          <select id="mecanico" name="mecanico" required>
+            <option value="">Seleccione un mecánico</option>
+          </select>
+        </div>
+
+        <button type="submit" id="registrar-btn">Registrar Cita</button>
+      </form>
     </section>
   </main>
   <footer>
